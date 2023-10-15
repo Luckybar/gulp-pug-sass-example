@@ -33,8 +33,13 @@ gulp.task('server', () => {
         }))
 });
 
+gulp.task('build', gulp.series('html', 'styles'));
+
 // watch
-gulp.task('watch', gulp.parallel('server', () => {
-    gulp.watch('./src/**/*.pug', gulp.series('html'));
-    gulp.watch('./src/sass/**/*.sass', gulp.series('styles'));
-}));
+gulp.task('watch', gulp.series(
+    'build',
+    gulp.parallel('server', () => {
+        gulp.watch('./src/**/*.pug', gulp.series('html'));
+        gulp.watch('./src/sass/**/*.sass', gulp.series('styles'));
+    })
+));
