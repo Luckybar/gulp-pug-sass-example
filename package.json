@@ -1,0 +1,20 @@
+{
+  "name": "gulp-pug-sass-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "luckybar",
+  "license": "ISC",
+  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-pug": "^5.0.0",
+    "gulp-webserver": "^0.9.1",
+    "sass": "^1.69.3"
+  },
+  "devDependencies": {
+    "gulp-sass": "^5.1.0"
+  }
+}
