@@ -2,6 +2,8 @@ const gulp = require('gulp');
 const gulpServer = require('gulp-webserver');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
+const concat = require('gulp-concat');
+const wrap = require('gulp-wrap');
 
 
 // pug to html
@@ -20,6 +22,14 @@ gulp.task('styles', () => {
     return gulp.src('./src/sass/**/*.sass')
         .pipe(sass())
         .pipe(gulp.dest('./dist/css/'));
+});
+
+gulp.task('css-to-js', function() {
+    return gulp.src('src/sass/**/*.sass')
+        .pipe(sass())
+        .pipe(concat('styles.js'))
+        .pipe(wrap('export default `<%= contents %>`;'))
+        .pipe(gulp.dest('dist'));
 });
 
 // server
